@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "core",
+    "module": "commonjs",
+    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "target": "es3",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types"
+    ]
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "src/vendors",
+    "src/mocks",
+    "**/*.test.tsx"
+  ]
+}

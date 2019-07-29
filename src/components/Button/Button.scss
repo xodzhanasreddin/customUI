@@ -1,0 +1,425 @@
+@mixin btn-visited-classes {
+
+  &,
+  &.visited,
+  &:visited {
+    @content;
+  }
+}
+
+@mixin btn-hover-classes {
+
+  &:hover,
+  &.hover {
+    @content;
+  }
+}
+
+@mixin btn-active-classes {
+
+  &:focus,
+  &:active,
+  &.active {
+    @content;
+  }
+}
+
+@mixin btn-disabled-classes {
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      @content;
+    }
+  }
+}
+
+// Mixin for generating new styles
+@mixin btn-styles($btn-color: #555, $color: $white) {
+  //@include gradient-vertical($start-color: $btn-color, $end-color: darken($btn-color, 12%));
+  @include reset-filter; // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
+  background-color: $btn-color;
+  background-repeat: repeat-x;
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0);
+
+  // transition: all 0.3s ease-in-out;
+  .btn-icon {
+    .Icon {
+      fill: $color;
+    }
+  }
+
+  @include btn-visited-classes {
+    color: $color;
+  }
+
+  @include btn-hover-classes {
+    background-color: $btn-color;
+    opacity: .9;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    border: none;
+    color: $color;
+  }
+
+  @include btn-active-classes {
+    background-color: $btn-color;
+    opacity: 1;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0);
+    border: none;
+  }
+
+  @include btn-disabled-classes {
+    background-color: $disabled-color;
+    background-image: none;
+    border: none;
+    opacity: 1;
+  }
+
+  &:after {
+    background: rgba($white, 0.3);
+  }
+
+  .App--dark & {
+    @include btn-disabled-classes {
+      background-color: #424653;
+      color: #787C85;
+
+      .btn-icon {
+        .Icon {
+          fill: #787C85;
+        }
+      }
+    }
+  }
+
+}
+
+// Mixin for generating new styles for button outline
+@mixin btn-outline-styles($btn-color: #555, $color:$btn-color) {
+  padding: 5px 11px 5px 11px;
+
+  .btn-icon {
+    .Icon {
+      fill: $color;
+    }
+  }
+
+  @include btn-visited-classes {
+    color: $color;
+    border-width: 2px;
+    border-color: $btn-color;
+    background: none;
+  }
+
+  @include btn-hover-classes {
+    color: $color;
+  }
+
+  @include btn-active-classes {
+    box-shadow: none;
+    color: $color;
+  }
+
+  @include btn-disabled-classes {
+    color: $disabled-color;
+    border-color: $disabled-color;
+    background: transparent;
+
+    .btn-icon {
+      .Icon {
+        fill: $disabled-color;
+      }
+    }
+  }
+
+  &.contrasted {
+    @include btn-disabled-classes {
+      background-color: #424653;
+      color: #787C85;
+      opacity: 1;
+    }
+  }
+
+  &:after {
+    background: rgba($btn-color, 0.1);
+  }
+
+  &.btn-lg {
+    padding: 11px 26px 11px 26px;
+    font-size: 16px;
+  }
+}
+
+// Common styles
+.Button.btn {
+
+  padding: 7px 13px 7px 13px;
+  position: relative;
+  overflow: hidden;
+
+  // Common styles
+  &.btn-default,
+  &.btn-primary,
+  &.btn-success,
+  &.btn-info,
+  &.btn-warning,
+  &.btn-danger {
+    //text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    //$shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+    //@include box-shadow($shadow);
+
+    // Reset the shadow
+    // &:active,
+    // &.active {
+    //@include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    // }
+
+    &:visited,
+    &.visited,
+    &:hover,
+    &.hover {
+      color: $white;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      @include box-shadow(none);
+    }
+
+    .badge {
+      text-shadow: none;
+    }
+  }
+
+  // Remove the gradient for the pressed/active state
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-image: none;
+    opacity: 1;
+
+    &:after {
+      left: -20%;
+      border-radius: 60%;
+    }
+  }
+
+  &:hover,
+  .hover {
+    opacity: 1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 260%;
+    border-radius: 35%;
+    left: -145%;
+    top: -60%;
+    transform: skewX(10deg);
+    transition: all 0.35s ease-in-out;
+  }
+
+  &.btn-icon-prepend,
+  &.btn-icon-append {
+    position: relative;
+
+    .btn-icon {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 26px;
+      height: 100%;
+      top: 0;
+    }
+  }
+
+  &.btn-icon-prepend {
+    .btn-icon {
+      left: 0;
+    }
+
+    padding-left: 26px !important;
+  }
+
+  &.btn-icon-append {
+    .btn-icon {
+      right: 0;
+    }
+
+    padding-right: 26px !important;
+  }
+
+  &.btn-lg {
+    padding: 14px 26px 14px 26px;
+    font-size: 16px;
+
+    &.btn-icon-prepend,
+    &.btn-icon-append {
+
+      .btn-icon {
+        width: 40px;
+
+        .Icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &.btn-icon-prepend {
+      padding-left: 40px !important;
+    }
+
+    &.btn-icon-append {
+      padding-right: 40px !important;
+    }
+  }
+
+  &-link {
+    @include btn-visited-classes {
+      color: $text-color;
+      border-width: 2px;
+      background: none;
+    }
+
+    @include btn-active-classes {
+      box-shadow: none;
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    @include btn-disabled-classes {
+      color: $disabled-color;
+      background: transparent;
+
+      .btn-icon {
+        .Icon {
+          fill: $disabled-color;
+        }
+      }
+    }
+
+    .App--dark & {
+      color: $white;
+
+      @include btn-disabled-classes {
+        background-color: none;
+        color: #787C85;
+
+        .btn-icon {
+          .Icon {
+            fill: #787C85;
+          }
+        }
+      }
+    }
+
+    &:after {
+      background: rgba($text-color, 0.1);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &-default {
+    @include btn-styles($btn-secondary-bg);
+  }
+
+  &-primary {
+    @include btn-styles($btn-primary-bg);
+  }
+
+  &-secondary {
+    @include btn-styles($btn-secondary-bg);
+  }
+
+  &-success {
+    @include btn-styles($brand-primary);
+  }
+
+  &-info {
+    @include btn-styles($btn-info-bg);
+  }
+
+  &-warning {
+    @include btn-styles($btn-warning-bg);
+  }
+
+  &-danger {
+    @include btn-styles($btn-danger-bg);
+  }
+
+  // Apply the mixin to the buttons
+  &-outline-default {
+    @include btn-outline-styles($btn-default-bg);
+
+    .App--dark & {
+      @include btn-outline-styles($white);
+    }
+  }
+
+  &-outline-primary {
+    @include btn-outline-styles($btn-primary-bg);
+
+    .App--dark & {
+      @include btn-outline-styles($white);
+    }
+  }
+
+  &-outline-secondary {
+    @include btn-outline-styles($btn-secondary-bg);
+  }
+
+  &-outline-white {
+    @include btn-outline-styles($white);
+  }
+
+  &-outline-black {
+    @include btn-outline-styles($black);
+  }
+
+  &-outline-gray {
+    @include btn-outline-styles($gray-simple, $text-color);
+    //color: $text-color;
+  }
+
+  &-outline-success {
+    @include btn-outline-styles($brand-primary);
+  }
+
+  &-outline-info {
+    @include btn-outline-styles($btn-info-bg);
+  }
+
+  &-outline-warning {
+    @include btn-outline-styles($btn-warning-bg);
+  }
+
+  &-outline-danger {
+    @include btn-outline-styles($btn-danger-bg);
+  }
+
+  &-show-more {
+    color: $primary-color;
+  }
+
+}
+
+.button-more-container {
+  text-align: center;
+}

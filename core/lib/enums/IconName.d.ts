@@ -1,0 +1,10 @@
+export declare enum IconName {
+    ARROW_UP = "ARROW_UP",
+    ARROW_RIGHT = "ARROW_RIGHT",
+    ARROW_DOWN = "ARROW_DOWN",
+    ARROW_LEFT = "ARROW_LEFT",
+    GLOBE = "GLOBE",
+    CONNECTIONS = "CONNECTIONS",
+    CALENDAR = "CALENDAR",
+    BOOKING_ROOM = "BOOKING_ROOM"
+}

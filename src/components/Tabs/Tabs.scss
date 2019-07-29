@@ -1,0 +1,115 @@
+.Tabs {
+
+  &__panel {
+    padding: 10px;
+  }
+
+  .nav-tabs {
+    border-bottom: 0;
+    margin-bottom: 25px;
+
+    li {
+      display: inline-block;
+      vertical-align: bottom;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+      margin-left: 13px;
+      border-left: 0 !important;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        border-radius: 0;
+        color: $text-color;
+        border: none;
+        padding: 10px 0;
+        background-color: transparent;
+
+        &:focus,
+        &:hover {
+          border-color: transparent;
+          opacity: 1;
+          border: none;
+          background-color: transparent;
+          color: $text-color;
+        }
+      }
+
+      &.active {
+        font-weight: bold;
+        border-bottom-color: $text-color;
+
+        a {
+          color: $text-color;
+          border: none;
+          background-color: transparent;
+
+          &:focus,
+          &:hover {
+            border-color: transparent;
+            opacity: 1;
+            border: none;
+            background-color: transparent;
+            color: $text-color;
+          }
+        }
+      }
+    }
+
+    &.nav-tabs-lg {
+      li {
+
+        font-size: 18px;
+
+        a {
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    .tab-icon {
+      margin-right: 4px;
+    }
+
+    .App--dark & {
+      li {
+        a {
+          color: $white;
+
+          &:focus,
+          &:hover {
+            color: $white;
+          }
+        }
+
+        &.active {
+          border-bottom-color: $white;
+
+          a {
+            color: $white;
+
+            &:focus,
+            &:hover {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-pills {
+
+    li {
+      cursor: pointer;
+    }
+  }
+}

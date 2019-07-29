@@ -1,0 +1,67 @@
+.Checkbox {
+  display: inline-flex;
+  width: auto;
+  margin: 20px 5px;
+  cursor: pointer;
+
+  &__input {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: solid 2px rgba(16, 24, 40, 0.2);
+    box-sizing: border-box;
+
+    .checked & {
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0% 100%;
+        background: $primary-color;
+
+        .App--dark & {
+          background: $secondary-color;
+        }
+      }
+
+      &:before {
+        width: 7px;
+        height: 3px;
+        transform: translate(1px, 0px) rotate(-135deg);
+      }
+
+      &:after {
+        width: 9px;
+        height: 3px;
+        transform: translate(0px, 1px) rotate(-45deg);
+      }
+    }
+
+    .checked.disabled & {
+
+      &:before,
+      &:after {
+        background: $gray-base;
+
+        .App--dark & {
+          background: $secondary-color;
+        }
+      }
+    }
+
+    .App--dark & {
+      border-color: #fff;
+    }
+  }
+
+  &__label {
+    margin-left: 10px;
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+}

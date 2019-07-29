@@ -1,0 +1,11 @@
+.Icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  fill: $text-color;
+
+  .App--dark & {
+    fill: #ffffff;
+  }
+
+}

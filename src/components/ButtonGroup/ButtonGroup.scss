@@ -1,0 +1,18 @@
+.buttons-group {
+  padding: 20px;
+
+  .btn {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.btn-group .btn+.btn,
+.btn-group .btn+.btn-group,
+.btn-group .btn-group+.btn,
+.btn-group .btn-group+.btn-group {
+  margin-left: -2px;
+}

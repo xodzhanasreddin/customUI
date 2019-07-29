@@ -1,0 +1,127 @@
+.TextInput {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.form-group {
+  display: inline-flex;
+  margin: 20px 0;
+  width: auto;
+  align-self: flex-start;
+
+  label {
+    color: rgba(16, 24, 40, 0.5);
+  }
+}
+
+.form-control--custom {
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: $gray-light;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 6px 0;
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
+    border-bottom-color: $primary-color;
+  }
+
+  &[disabled],
+  &[readonly] {
+    color: $gray;
+    background-color: transparent;
+    border-bottom-style: dashed;
+
+    &:focus,
+    &:hover {
+      border-bottom-color: $gray-light;
+    }
+
+    ~* {
+      color: $gray;
+    }
+  }
+}
+
+[class*='has-'] .form-control--custom {
+  box-shadow: none;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom-color: $brand-primary;
+  }
+}
+
+.has-error .form-control--custom {
+  border-color: $state-danger-text;
+}
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline {
+  color: $state-danger-text;
+}
+
+.form-inline div.form-group {
+  margin-bottom: 20px;
+}
+
+.form-inline input.form-control--custom {
+  display: block;
+}
+
+.help-block {
+  position: absolute;
+  bottom: -30px;
+  font-size: 12px;
+  margin-top: 15px;
+  color: #737373;
+}
+
+.App--dark {
+
+  .form-control--custom[disabled]~*,
+  .form-control--custom[readonly]~* {
+    color: $pale-grey-two;
+  }
+
+  .form-control--custom {
+    color: #fff;
+    border-bottom-color: $pale-grey-two;
+  }
+
+  .form-control--custom:focus,
+  .form-control--custom.focus {
+    border-bottom-color: $secondary-color;
+  }
+
+  .form-group label {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+  .form-control--custom[disabled],
+  .form-control--custom[readonly] {
+    color: #fff;
+    opacity: 0.3;
+  }
+
+  .has-error .form-control--custom {
+    border-color: $state-danger-text;
+
+    &[disabled]~*,
+    &[readonly]~* {
+      color: $state-danger-text;
+    }
+  }
+}

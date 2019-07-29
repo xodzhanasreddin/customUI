@@ -1,0 +1,18 @@
+"use strict";
+exports.__esModule = true;
+var arrow_up_svg_1 = require("../../assets/svg/arrow-up.svg");
+exports.ARROW_UP = arrow_up_svg_1["default"];
+var arrow_right_svg_1 = require("../../assets/svg/arrow-right.svg");
+exports.ARROW_RIGHT = arrow_right_svg_1["default"];
+var arrow_down_svg_1 = require("../../assets/svg/arrow-down.svg");
+exports.ARROW_DOWN = arrow_down_svg_1["default"];
+var arrow_left_svg_1 = require("../../assets/svg/arrow-left.svg");
+exports.ARROW_LEFT = arrow_left_svg_1["default"];
+var globe_svg_1 = require("../../assets/svg/globe.svg");
+exports.GLOBE = globe_svg_1["default"];
+var connections_svg_1 = require("../../assets/svg/connections.svg");
+exports.CONNECTIONS = connections_svg_1["default"];
+var calendar_svg_1 = require("../../assets/svg/calendar.svg");
+exports.CALENDAR = calendar_svg_1["default"];
+var booking_room_svg_1 = require("../../assets/svg/booking-room.svg");
+exports.BOOKING_ROOM = booking_room_svg_1["default"];
