@@ -47,7 +47,7 @@
     "file-loader": "3.0.1",
     "jest": "24.1.0",
     "mini-css-extract-plugin": "0.4.4",
-    "node-sass": "4.10.0",
+    "node-sass": "4.13.1",
     "path": "0.12.7",
     "react-addons-test-utils": "0.14.0",
     "sass-loader": "7.1.0",
